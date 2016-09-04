@@ -2,19 +2,22 @@
 
 <div id="content">
 
+	<div class="title">
+		<div class="subcontainer">
+			<?php if ( have_posts() ):
+
+				while ( have_posts() ): the_post(); ?>
+
+					<h2><?php the_title(); ?></h2>
+
+				<?php endwhile;
+
+				endif;
+			?>
+		</div>
+	</div>
+
 	<div class="subcontainer">
-
-		<?php if ( have_posts() ):
-
-			while ( have_posts() ): the_post(); ?>
-
-				<h3><?php the_title(); ?></h3>
-
-			<?php endwhile;
-
-			endif;
-		?>
-
 		<?php 
 			wp_nav_menu( array( 
 				'theme_location' => 'sponsors', 
@@ -24,10 +27,14 @@
 			);
 		?>
 
-		<div id="target" class="col-xs-12 col-md-9"></div>
+		<div class="row">
+			<div id="target" class="col-xs-12 col-md-9">
+				<div class="modal"></div>
+			</div>
 
-		<div class="col-xs-12 col-md-3">
-			<?php get_sidebar(); ?>
+			<div class="col-xs-12 col-md-3">
+				<?php get_sidebar(); ?>
+			</div>
 		</div>
 
 	</div> <!-- .subcontainer -->
