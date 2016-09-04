@@ -56,6 +56,7 @@ function dblions_settings() {
 	register_setting( 'dblions-social-group', 'instagram_link' );
 	register_setting( 'dblions-social-group', 'tumblr_link' );
 	register_setting( 'dblions-social-group', 'gplus_link' );
+	register_setting( 'dblions-social-group', 'youtube_link' );
 
 	add_settings_section( 'dblions-general-options', 'General Options', 
 		'dblions_general_options', 'dblions' );
@@ -76,6 +77,7 @@ function dblions_settings() {
 	add_settings_field( 'instagram-link', 'Instagram Link', 'dblions_ig_link', 'dblions_social', 'dblions-social-options' );
 	add_settings_field( 'tumblr-link', 'Tumblr Link', 'dblions_tumblr_link', 'dblions_social', 'dblions-social-options' );
 	add_settings_field( 'gplus-link', 'Google+ Link', 'dblions_gplus_link', 'dblions_social', 'dblions-social-options' );
+	add_settings_field( 'youtube-link', 'YouTube Link', 'dblions_youtube_link', 'dblions_social', 'dblions-social-options' );
 }
 
 /*======================================
@@ -179,6 +181,14 @@ function dblions_gplus_link() {
 	create_input_field( array(
 			'gplus_link', 'text', 
 			$gpluslink, 'Google+ Link'
+		) );
+}
+
+function dblions_youtube_link() {
+	$ytlink = esc_attr( get_option( 'youtube_link' ) );
+	create_input_field( array(
+			'youtube_link', 'text', 
+			$ytlink, 'YouTube Link'
 		) );
 }
 
